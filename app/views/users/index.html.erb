@@ -1,0 +1,9 @@
+<section class="users-section">
+  <h5><%= link_to "Back", :back, class: "fas fa-arrow-left text-decoration-none" %></h5>
+
+  <ul class="users-list">
+    <%= render @users %>
+  </ul>
+</section>
+
+<%= render 'shared/new_tweet' %>

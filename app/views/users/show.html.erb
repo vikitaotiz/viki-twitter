@@ -1,0 +1,33 @@
+<div class="container row">
+  <h5><%= link_to "Back", :back, class: "fas fa-arrow-left text-decoration-none" %></h5>
+  <div class="col-lg-8 col-md-6 col-sm-12 mb-3">
+    <ul class="posts">
+      <%= render @tweets %>
+    </ul>
+  </div>
+
+  <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+    <div class="card card-body">
+      <ul class="list-group list-group-flush">
+
+        <li class="list-group-item">
+          <% if current_user.id == @user.id %>
+            <h5>Pending Requests:</h5>
+            <ul>
+                ##
+            </ul>
+            <% end %>
+        </li>
+
+        <li class="list-group-item">
+          <h5>My Followers: #</h5>
+            <ul>
+              ##
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<%= render 'shared/new_tweet' %>

@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
     before_action :authenticate_user!
+    def index
+        @users = User.all
+        @tweet = Tweet.new
+    end
+
     def show
         @user = User.find(id)
         @tweets = Tweet.all
