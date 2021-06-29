@@ -1,19 +1,19 @@
-<div class="modal fade" id="newPostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="newTweetModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header bg-primary text-white">
-        <h5 class="modal-title" id="exampleModalLabel">Add New Post</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add New Tweet</h5>
         <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= form_for(@post) do |form| %>
+        <%= form_for(@tweet) do |form| %>
             <%= form.label :content %>
-            <%= form.text_field :content, id: :post_content, class: 'form-control rounded-pill', placeholder: 'Add New Post' %>
+            <%= form.text_field :content, id: :tweet_content, class: 'form-control rounded-pill', placeholder: 'Add New Tweet' %>
             <div class="form-group mb-3">
               <%= form.label :Image, class: "form-label" %>
-              <%= form.file_field :post_image, class: "form-control rounded-pill" %>
+              <%= form.file_field :tweet_image, class: "form-control rounded-pill" %>
             </div>
-            <%= display_errors(@post) %>
+            <%= display_errors(@tweet) %>
             <div class="d-grid gap-2">
             <button type="submit" class="btn btn-sm btn-primary mt-1 rounded-pill">
                 <i class="fas fa-plus"></i> Save Tweet</button>

@@ -1,2 +1,27 @@
-<h1>Tweets#index</h1>
-<p>Find me in app/views/tweets/index.html.erb</p>
+<article class="timeline">
+  
+  <h3>Recent tweets</h3>
+
+  <div class="container row">
+    <div class="col-lg-9 col-md-6 col-sm-12 mb-3">
+      <%= render @timeline_tweets %>
+    </div>
+
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+      <div class="card card-body">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <h5>Followers : ##</h5>
+              <ul>
+                ####
+              </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+</article>
+
+<%= render 'shared/new_tweet' %>
