@@ -9,23 +9,29 @@
   <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
     <div class="card card-body">
       <ul class="list-group list-group-flush">
-
-        <li class="list-group-item">
-          <% if current_user.id == @user.id %>
-            <h5>Pending Requests:</h5>
-            <ul>
-                ##
-            </ul>
-            <% end %>
-        </li>
-
-        <li class="list-group-item">
-          <h5>My Followers: #</h5>
-            <ul>
-              ##
-            </ul>
-        </li>
-      </ul>
+        <div class="ms-2 me-auto">
+            <div class="fw-bold border-bottom">
+              <i class="fas fa-user"></i> <%= @user.username %>  
+              <span class="float-end"><i class="fas fa-thumbs-up"></i> Likes : <%= @user.likes.count %></span>
+            </div>
+             <%= @user.email %>
+             <div class="row border-top">
+                <div class="col">Tweets<br>
+                    <b><%= @user.tweets.count %></b>
+                </div>
+                <div class="col">Followers<br>
+                    <b><%= @user.followers.count %></b>
+                </div>
+                <div class="col">Following<br>
+                    <b><%= @user.following.count %></b>
+                </div>
+            </div>
+        </div><hr>
+        <span>
+            <h5>Users To Follow : </h5>
+            <%= follow_btn(@user) %>
+        </span>
+    </ul>
     </div>
   </div>
 </div>

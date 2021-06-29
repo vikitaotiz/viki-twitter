@@ -3,8 +3,25 @@
         <li class="list-group-item d-flex justify-content-between align-items-start">
 
         <div class="ms-2 me-auto">
-        <div class="fw-bold">Name: <%= user.username %></div>
-        <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
+            <div class="fw-bold">
+                <a href="/users/<%= user.id %>" class="text-decoration-none">
+                <i class="fas fa-user"></i> <%= user.username %></a>
+            </div>
+             <%= user.email %>
+             <div class="row border-top">
+                <div class="col">Tweets<br>
+                    <b><%= user.tweets.count %></b>
+                </div>
+                <div class="col">Followers<br>
+                    <b><%= user.followers.count %></b>
+                </div>
+                <div class="col">Following<br>
+                    <b><%= user.following.count %></b>
+                </div>
+            </div>
         </div>
+        <span>
+            <%= follow_btn(user) %>
+        </span>
     </ul>
 </div>

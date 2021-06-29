@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :following, only: [:create, :destroy]
+
   resources :tweets, only: [:index, :create] do
     resources :comments, only: [:create]
     resources :likes, only: [:create, :destroy]

@@ -3,20 +3,26 @@
   <h3>Recent tweets</h3>
 
   <div class="container row">
-    <div class="col-lg-9 col-md-6 col-sm-12 mb-3">
+    <div class="col-lg-8 col-md-6 col-sm-12 mb-3">
       <%= render @timeline_tweets %>
     </div>
 
-    <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
       <div class="card card-body">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <h5>Followers : ##</h5>
-              <ul>
-                <%= render partial: 'shared/follows', locals: { users: @follows } %>
-              </ul>
-          </li>
-        </ul>
+        <div class="row">
+          <div class="col"><i class="fab fa-twitter"></i>  Tweets<br>
+            <b><%= current_user.tweets.count %></b>
+          </div>
+          <div class="col">Followers<br>
+            <b><%= current_user.followers.count %></b>
+          </div>
+          <div class="col">Following<br>
+            <b><%= current_user.following.count %></b>
+          </div>
+        </div>
+        <hr>
+        <h5>Users To Follow : </h5>
+        <%= render partial: 'shared/follows', locals: { users: @follows } %>
       </div>
     </div>
   </div>

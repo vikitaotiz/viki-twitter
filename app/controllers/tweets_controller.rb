@@ -2,6 +2,7 @@ class TweetsController < ApplicationController
   def index
     @tweet = Tweet.new
     timeline_tweets
+    @follows = User.all - current_user.following - [current_user]
   end
 
   def show
@@ -22,7 +23,7 @@ class TweetsController < ApplicationController
 
   def timeline_tweets
     ids = current_user.following.pluck(:id) << current_user.id
-    @timeline_tweets = Tweet.where(user_id: ids).includes([:user]).order('created_at DESC')
+    @timeline_tweets = Tweet.where(user_id: ids).includes([:user]).order('created_at DESC')    
   end
 
   def tweet_params
