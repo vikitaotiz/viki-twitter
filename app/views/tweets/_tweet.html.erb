@@ -1,0 +1,14 @@
+<div class="card card-body m-2 shadow">
+    <div class="card-subtitle">
+        <span><%= link_to tweet.user.username, user_path(tweet.user), class: 'text-decoration-none' %></span>
+        <small class='float-end border p-1 rounded-pill'>
+            <span class="mr-2"> <%= tweet.created_at.strftime("%Y/%m/%d") %> </span>
+        </small>
+    </div>
+    <hr>
+    
+    <div class="p-2">
+                <%= truncate tweet.content, length: 60 %>
+                <small class="float-end"><i>Click to view more</i></small>
+            </div>
+</div>
