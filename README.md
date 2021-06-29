@@ -12,7 +12,7 @@ This is a simple MVP twitter application project written on ruby on rails. The p
 
 ## Getting Started
 
-- Ensure you have rails installed by running 'rails -v'. Otherwise run 'gem install rails'
+- Ensure you have rails installed by running `rails -v`. Otherwise run `gem install rails`
 - Click on the `Code` green button
 - By the right end of the read-only input containing the repository link click the clipboard icon to copy the link
 - In your local PC, open your terminal in the folder you would like to clone the repository into
