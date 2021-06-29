@@ -21,7 +21,8 @@ class TweetsController < ApplicationController
   private
 
   def timeline_tweets
-    @timeline_tweets = Tweet.all
+    ids = current_user.following.pluck(:id) << current_user.id
+    @timeline_tweets = Tweet.where(user_id: ids).includes([:user]).order('created_at DESC')
   end
 
   def tweet_params

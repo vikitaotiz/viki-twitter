@@ -13,7 +13,7 @@
           <li class="list-group-item">
             <h5>Followers : ##</h5>
               <ul>
-                ####
+                <%= render partial: 'shared/follows', locals: { users: @follows } %>
               </ul>
           </li>
         </ul>

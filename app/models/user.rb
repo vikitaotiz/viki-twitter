@@ -30,4 +30,17 @@ class User < ApplicationRecord
       errors.add(:username, :invalid)
     end
   end
+
+  # Following helper methods
+  def follow(other)
+    active_relationships.create(followed_id: other.id)
+  end
+
+  def unfollow(other)
+    active_relationships.find_by(followed_id: other.id).destroy
+  end
+
+  def following?(other)
+    following.include?(other)
+  end
 end
