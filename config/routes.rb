@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   resources :tweets
   
-  post 'followers/create'
-
   resources :users, only: [:index, :show] do
     member do 
       post :confirm
