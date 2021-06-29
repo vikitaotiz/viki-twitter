@@ -6,7 +6,8 @@ class User < ApplicationRecord
   
   has_many :tweets
   has_many :likes, dependent: :destroy
-
+  has_one_attached :user_image
+  
   attr_writer :login
   validate :validate_username
   validates :username, presence: true, uniqueness: { case_sensitive: false }

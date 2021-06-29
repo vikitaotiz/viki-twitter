@@ -9,10 +9,17 @@
     </div>
     <hr>
     
-    <div class="p-2">
-        <%= truncate tweet.content, length: 60 %>
+    <a href="/tweets/<%= tweet.id %>", class="text-decoration-none">
+        <div class="card-text" style="background: #f0f0f0;">
+            <% if tweet.tweet_image.attached? %>
+                <%= image_tag tweet.tweet_image, style: "width: 100%; height: 180px;" %>
+            <% end %>
+            <div class="p-2">
+                <%= truncate tweet.content, length: 60 %>
                 <small class="float-end"><i>Click to view more</i></small>
-    </div>
+            </div>
+        </div>
+    </a>
 
     <small>
     
