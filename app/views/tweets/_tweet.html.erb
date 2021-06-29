@@ -8,7 +8,25 @@
     <hr>
     
     <div class="p-2">
-                <%= truncate tweet.content, length: 60 %>
+        <%= truncate tweet.content, length: 60 %>
                 <small class="float-end"><i>Click to view more</i></small>
-            </div>
+    </div>
+
+    <small>
+    
+    <div class='border-top mt-2 card card-body border-0'>
+        <% if  tweet.comments.count > 0 %>
+            <h5 class="mt-2">Comments : </h5>
+            <%= render partial: 'comments/comment', collection: tweet.comments %>
+        <% end %>
+        <br>
+        <%= form_for(tweet.comments.new, url: tweet_comments_path(tweet)) do |form| %>
+        <%= form.text_field :content, id: :comment_content, class: 'form-control rounded-pill', placeholder: 'Add new Comment' %>
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-sm btn-primary mt-1 rounded-pill">
+            <i class="fas fa-comments"></i> Add Comment</button>
+        </div>
+        <% end %>
+    </div>
+    </small>
 </div>
