@@ -11,7 +11,7 @@ This is a simple MVP twitter clone application project written on ruby on rails.
 
 ## Live Demo
 
-[Live Demo Link](https://vikita-reddit.herokuapp.com/)
+[Live Demo Link](https://vikita-twitter.herokuapp.com/)
 
 ## Getting Started
 
