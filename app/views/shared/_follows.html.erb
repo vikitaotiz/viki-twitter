@@ -4,8 +4,14 @@
   <li class="list-group-item d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">
       <div class="fw-bold">
+      
         <%= link_to("/users/#{user.id}") do %>
-          <p class="mb-0 text-capitalize tx-normal font-weight-bold"><%= user.username %></p>
+          <% if user.profile_image.attached? %>
+            <%= image_tag user.profile_image, class: "thumbnail rounded-pill", style: "height: 40px; width: 40px;" %>
+          <% else %>
+            <%= image_tag 'user.png',  class: "thumbnail rounded-pill", style: "height: 40px; width: 40px;" %>
+          <% end %> 
+          <%= user.username %></p>
         <% end %>
       </div>
       <%= user.email %>
