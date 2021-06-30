@@ -1,19 +1,19 @@
 class CommentsController < ApplicationController
-    def create
-        @comment = Comment.new(comment_params)
-        @comment.tweet_id = params[:tweet_id]
-        @comment.user = current_user
+  def create
+    @comment = Comment.new(comment_params)
+    @comment.tweet_id = params[:tweet_id]
+    @comment.user = current_user
 
-        if @comment.save
-            redirect_to tweets_path, notice: 'Comment was successfully created.'
-        else
-            redirect_to tweets_path, alert: @comment.errors.full_messages.join('. ').to_s
-        end
+    if @comment.save
+      redirect_to tweets_path, notice: 'Comment was successfully created.'
+    else
+      redirect_to tweets_path, alert: @comment.errors.full_messages.join('. ').to_s
     end
+  end
 
-    private
+  private
 
-    def comment_params
-        params.require(:comment).permit(:content)
-    end
+  def comment_params
+    params.require(:comment).permit(:content)
+  end
 end

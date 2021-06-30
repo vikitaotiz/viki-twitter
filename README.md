@@ -1,6 +1,6 @@
 # viki-twitter
 
-This is a simple MVP twitter clone application project written on ruby on rails. The project test basic concepts of MVC application architecture. It involves, installation and configuration of ruby on rails, use of models, controllers, associations, views, routers and database. It also tests basic CRUD implementation.
+This is a simple MVP twitter clone application project written on ruby on rails. The project test basic concepts of MVC application architecture. It involves, installation and configuration of ruby on rails, use of models, controllers, associations, views, routers and database. It also tests implementation of rspec in intergrated and unit tests
 
 ## Built With
 
@@ -24,7 +24,11 @@ This is a simple MVP twitter clone application project written on ruby on rails.
 - Run 'rails server' to spin up a development server
 - Once the server is up, open this link 'http://127.0.0.1:3000' on your browser
 
-- (Optional) Sign Up one user then run 'rails db:seed'
+### Run tests
+
+- Navigate into the app directory, `cd viki-twitter`
+- Then run `rails db:migrate db:test:prepare`
+- Then run `rspec --format doc`. This will display detailed information about models and test results.
 
 ## Authors
 
