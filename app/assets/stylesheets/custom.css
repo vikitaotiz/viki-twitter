@@ -11679,11 +11679,6 @@ body {
   text-align: left;
 }
 
-.dataTable-table th a {
-  text-decoration: none;
-  color: inherit;
-}
-
 .dataTable-sorter {
   display: inline-block;
   height: 100%;
