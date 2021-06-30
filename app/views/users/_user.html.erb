@@ -6,10 +6,10 @@
             <div class="fw-bold">
                 <a href="/users/<%= user.id %>" class="text-decoration-none">
 
-                    <% if user.cover_image.attached? || user.profile_image.attached? %>
-                        <%= image_tag user.profile_image, class: "thumbnail rounded-pill", style: "height: 50px; width: 50px;" %>
+                    <% if user.profile_image.attached? %>
+                        <%= image_tag user.profile_image, class: "thumbnail rounded-pill", style: "height: 40px; width: 40px;" %>
                     <% else %>
-                        <%= image_tag 'user.png',  class: "thumbnail rounded-pill", style: "height: 50px; width: 50px;" %>
+                        <%= image_tag 'user.png',  class: "thumbnail rounded-pill", style: "height: 40px; width: 40px;" %>
                     <% end %> <%= user.username %></a>
             </div>
              <%= user.email %>

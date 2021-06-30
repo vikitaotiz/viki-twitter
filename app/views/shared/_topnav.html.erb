@@ -3,7 +3,7 @@
             <a class="navbar-brand ps-3" href="/">
                <i class="fab fa-twitter"></i> Viki-Twitt
             </a>
-            <% if current_user %>
+            <% if current_user && request.env['PATH_INFO'] != "/users/edit.#{current_user.id}" %>
                 <a class="nav-item">
                     <button type="button" class="btn btn-warning rounded-pill btn-sm" data-bs-toggle="modal" data-bs-target="#newTweetModal">
                      <i class="fas fa-plus"></i> New Tweet</button>
