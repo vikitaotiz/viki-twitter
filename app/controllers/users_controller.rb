@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(id)
-        @tweets = Tweet.all
+        @tweets = @user.tweets
         @tweet = Tweet.new
         @follows = User.all - @user.following - [@user]
         @followers = @user.followers

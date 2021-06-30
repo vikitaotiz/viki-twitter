@@ -6,7 +6,8 @@ class User < ApplicationRecord
   
   has_many :tweets
   has_many :likes, dependent: :destroy
-  has_one_attached :user_image
+  has_one_attached :profile_image
+  has_one_attached :cover_image
   
   attr_writer :login
   validate :validate_username

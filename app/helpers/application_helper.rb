@@ -15,11 +15,11 @@ module ApplicationHelper
         if !current_user.following?(user)
         link_to('Follow', following_index_path(user_id: user.id),
                 method: :post,
-                class: 'badge rounded-pill bg-primary text-decoration-none')
+                class: 'btn btn-sm btn-outline-primary rounded-pill px-3')
         else
         form_for(current_user.active_relationships.find_by(followed_id: user.id),
                 html: { method: :delete }) do |f|
-            f.submit 'Unfollow', class: 'badge rounded-pill bg-warning text-decoration-none'
+            f.submit 'Unfollow', class: 'btn btn-sm btn-outline-danger rounded-pill px-3'
         end
         end
     end
