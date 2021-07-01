@@ -1,34 +1,48 @@
-<div class="fb-profile">
-  <% if @user.cover_image.attached? || @user.profile_image.attached? %>
-    <%= image_tag @user.cover_image, class: "fb-image-lg", align: 'left', style: "height: 130px;" %>
-    <%= image_tag @user.profile_image, class: "fb-image-profile thumbnail rounded-pill", align: 'left'%>
-    <div class="fb-profile-text">
-            <div class="fw-bold">
-                <h2><%= @user.username %></h2>
-                <%= @user.email %>
+<div class="row">
+  <div class="col-lg-8 col-md-6 col-sm-12">
+    <% if @user.cover_image.attached? %>
+      <%= image_tag @user.cover_image, class: "fb-image-lg", align: 'left', style: "height: 190px; width: 100%;" %>
+    <% else %>
+      <%= image_tag 'cover.jpg', align: "left", class: "fb-image-lg", style: "height: 190px; width: 100%;" %>
+    <% end %>
+  </div>
+  
+  <div class="col-lg-4 col-md-6 col-sm-12 border-start">
+    <% if @user.profile_image.attached? %>
+    <div class="text-center card-box">
+         <div class="member-card pt-2 pb-2">
+           <div class="thumb-lg member-thumb mx-auto">
+           <%= image_tag @user.profile_image, class: "rounded-circle img-thumbnail", style: "height: 100px; width: 100px;" %>
+              <div class="">
+                <h4><%= @user.username %></h4>
+                <p class="text-muted"> <i class="fas fa-envelope"></i> : <%= @user.email %></p>
               </div>
-          </div>
+           </div>
+        </div>
   <% else %>
-    <%= image_tag 'cover.jpg', align: "left", class: "fb-image-lg", style: "height: 130px;" %>
-    <%= image_tag 'user.png', align: "left", class: "fb-image-profile thumbnail rounded-pill" %>
-          <div class="fb-profile-text">
-            <div class="fw-bold">
-                <h2><%= @user.username %></h2>
-                <%= @user.email %>
+       <div class="text-center card-box">
+         <div class="member-card pt-2 pb-2">
+           <div class="thumb-lg member-thumb mx-auto">
+           <%= image_tag 'user.png', class: "rounded-circle img-thumbnail", style: "height: 100px; width: 100px;" %>
+              <div class="">
+                <h4><%= @user.username %></h4>
+                <p class="text-muted"> <i class="fas fa-envelope"></i> : <%= @user.email %></p>
               </div>
-          </div>
+           </div>
+        </div>
   <% end %>
-</div>
+  </div>
+</div><hr>
 
-<div class="container row">
-  <p><%= link_to "Back", :back, class: "fas fa-arrow-left text-decoration-none" %></p>
-  <div class="col-lg-8 col-md-6 col-sm-12 mb-3">
+<div class="row">
+  <p><%= link_to " Back", :back, class: "fas fa-arrow-left text-decoration-none" %></p>
+  <div class="col-lg-8 col-md-6 col-sm-12">
     <ul class="@users">
       <%= render @tweets %>
     </ul>
   </div>
 
-  <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+  <div class="col-lg-4 col-md-6 col-sm-12">
     <div class="card card-body">
     <span class="float-end"><i class="fas fa-thumbs-up"></i> Likes : <%= @user.likes.count %></span>
       <ul class="list-group list-group-flush">
@@ -53,10 +67,16 @@
               <% current_user.followers.each do |user| %>
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                   <div class="ms-2 me-auto">
-                      <div class="fw-bold"><%= link_to user.username, user %>
+                      <div class="fw-bold">
+                        <% if user.profile_image.attached? %>
+                          <%= image_tag user.profile_image, class: "thumbnail rounded-pill", style: "height: 40px; width: 40px;" %>
+                        <% else %>
+                          <%= image_tag 'user.png',  class: "thumbnail rounded-pill", style: "height: 40px; width: 40px;" %>
+                        <% end %>
+                      <%= link_to user.username, user %>
                       </div>
                     </div>
-                    <span><%= user.email %></span>
+                    <span><%= follow_btn(user) %></span>
                 </li>
               <% end %>
             </ul>

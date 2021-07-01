@@ -17,6 +17,5 @@ RSpec.describe Following, type: :model do
       follower = Following.create(followed_id: user1.id, follower_id: user2.id)
       expect(followed == follower).to be false
     end
-    
   end
 end

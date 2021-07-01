@@ -1,7 +1,37 @@
 <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
-                        
+                        <div class="nav">
+                        <% if current_user.profile_image.attached? %>
+                            <div class="text-center card-box">
+                                <div class="member-card pt-2 pb-2">
+                                <div class="thumb-lg member-thumb mx-auto">
+                                <%= image_tag current_user.profile_image, class: "rounded-circle img-thumbnail", style: "height: 80px; width: 80px;" %>
+                                    <div class="">
+                                        <i><%= current_user.username %></i>
+                                    </div>
+                                </div>
+                                </div>
+                        <% else %>
+                            <div class="text-center card-box">
+                                <div class="member-card pt-2 pb-2">
+                                <div class="thumb-lg member-thumb mx-auto">
+                                <%= image_tag 'user.png', class: "rounded-circle img-thumbnail", style: "height: 80px; width: 80px;" %>
+                                    <div class="">
+                                        <i><%= current_user.username %></i>
+                                    </div>
+                                </div>
+                                </div>
+                        <% end %><hr>
+                        <div class="row">
+                        <div class="col border-end"> Tweets<br>
+                            <b><%= current_user.tweets.count %></b>
+                        </div>
+                        <div class="col">Followers<br>
+                            <b><%= current_user.followers.count %></b>
+                        </div>
+                        </div>
+                        </div><hr>
                         <div class="nav">
                             <a class="nav-link" href="/">
                                 <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
@@ -13,7 +43,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="sb-sidenav-footer">
+                    <div class="fixed-bottom p-2" style="background: #343A40;">
                         <i class="fab fa-twitter"></i> Viki-Twitt
                         <div class="small">Copyright &copy; 2021</div>
                     </div>
