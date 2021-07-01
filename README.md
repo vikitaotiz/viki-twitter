@@ -32,6 +32,19 @@ This is a simple MVP twitter clone application project written on ruby on rails.
 - Then run `rails db:migrate db:test:prepare`
 - Then run `rspec --format doc`. This will display detailed information about models and test results.
 
+### Features
+- User can login/signup.
+- User can see landing page.
+- User can see the other users to follow.
+- User can follow users.
+- User can create and post tweets.
+- User can see others tweets if he or she follows them.
+- User can comment on his/her or other users' tweets.
+- User can like/dislike his/her or other users' tweets.
+- User can go to profile page.
+- User can see profile details.
+- User can upload profile and cover images.
+
 ## Authors
 
 :bust_in_silhouette: **Victor Otieno**
