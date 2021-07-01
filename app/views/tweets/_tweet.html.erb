@@ -1,14 +1,18 @@
 <div class="card card-body m-2 shadow">
-    <div class="card-subtitle">
-        <span><%= link_to tweet.user.username, user_path(tweet.user), class: 'text-decoration-none' %></span>
+    <div class="card-subtitle mb-2">
+        <span>
+        <% if tweet.user.profile_image.attached? %>
+            <%= image_tag tweet.user.profile_image, class: "thumbnail rounded", style: "height: 40px; width: 40px;" %>
+          <% else %>
+            <%= image_tag 'user.png',  class: "thumbnail rounded", style: "height: 40px; width: 40px;" %>
+          <% end %> 
+        <%= link_to tweet.user.username, user_path(tweet.user), class: 'text-decoration-none' %></span>
         <small class='float-end border p-1 rounded-pill'>
             <span class="mr-2"> <%= tweet.created_at.strftime("%Y/%m/%d") %> </span> | 
             <i class="fas fa-comments"></i> : <%= tweet.comments.count %> | 
             <%= like_or_dislike_btn(tweet) %> <i class="fas fa-thumbs-up"></i> : <%= tweet.likes.count %>
         </small>
-    </div>
-    <hr>
-    
+    </div>    
     <a href="/tweets/<%= tweet.id %>", class="text-decoration-none">
         <div class="card-text" style="background: #f0f0f0;">
             <% if tweet.tweet_image.attached? %>
@@ -21,21 +25,4 @@
         </div>
     </a>
 
-    <small>
-    
-    <div class='border-top mt-2 card card-body border-0'>
-        <% if  tweet.comments.count > 0 %>
-            <h5 class="mt-2">Comments : </h5>
-            <%= render partial: 'comments/comment', collection: tweet.comments %>
-        <% end %>
-        <br>
-        <%= form_for(tweet.comments.new, url: tweet_comments_path(tweet)) do |form| %>
-        <%= form.text_field :content, id: :comment_content, class: 'form-control rounded-pill', placeholder: 'Add new Comment' %>
-        <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-sm btn-primary mt-1 rounded-pill">
-            <i class="fas fa-comments"></i> Add Comment</button>
-        </div>
-        <% end %>
-    </div>
-    </small>
 </div>

@@ -1,23 +1,21 @@
-<nav class="navbar navbar-expand navbar-dark bg-primary">
-            <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="/">
-               <i class="fab fa-twitter"></i> Viki-Twitter
-            </a>
-            
-            <% if current_user && request.env['PATH_INFO'] != "/users/edit.#{current_user.id}" %>
-                <a class="nav-item">
-                    <button type="button" class="btn btn-warning rounded-pill btn-sm" data-bs-toggle="modal" data-bs-target="#newTweetModal">
-                     <i class="fas fa-plus"></i> New Tweet</button>
-                </a>
-            <% end %>
-            <!-- Navbar Search-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+       <i class="fab fa-twitter"></i> Viki-Twitter
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"></form>
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <% if current_user %>
                 <li class="nav-item">
-                    <a href="/users/<%= current_user.id %>" class="btn btn-outline-secondary btn-sm rounded-pill m-2">
-                     <%= current_user.username %> : profile</a>
+                  <div class="nav-link">
+                    <i class="fas fa-thumbs-up"></i> Likes : <%= current_user.likes.count %>
+                  </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
@@ -32,5 +30,6 @@
                     <%= link_to 'Register', new_user_registration_path, class: "btn btn-warning btn-sm rounded-pill m-2", style: "width: 80px" %>
                 <% end %>
             </ul>
-            
-        </nav>
+    </div>
+  </div>
+</nav>

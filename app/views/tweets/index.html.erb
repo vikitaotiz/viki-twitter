@@ -1,26 +1,18 @@
 <article class="timeline">
   
-  <h3>Recent tweets</h3>
+  <%= render 'shared/subnav' %>
 
   <div class="container row">
     <div class="col-lg-8 col-md-6 col-sm-12 mb-3">
+    <div class="d-grid card card-body m-2">
+        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="modal" data-bs-target="#newTweetModal">
+            <i class="fab fa-twitter"></i> Tweet Something</button>
+      </div>
       <%= render @timeline_tweets %>
     </div>
 
-    <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-3">      
       <div class="card card-body">
-        <div class="row">
-          <div class="col"><i class="fab fa-twitter"></i>  Tweets<br>
-            <b><%= current_user.tweets.count %></b>
-          </div>
-          <div class="col">Followers<br>
-            <b><%= current_user.followers.count %></b>
-          </div>
-          <div class="col">Following<br>
-            <b><%= current_user.following.count %></b>
-          </div>
-        </div>
-        <hr>
         <h5>Users To Follow : </h5>
         <%= render partial: 'shared/follows', locals: { users: @follows } %>
       </div>

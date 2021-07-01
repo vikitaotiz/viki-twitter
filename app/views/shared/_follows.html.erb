@@ -7,14 +7,15 @@
       
         <%= link_to("/users/#{user.id}") do %>
           <% if user.profile_image.attached? %>
-            <%= image_tag user.profile_image, class: "thumbnail rounded-pill", style: "height: 40px; width: 40px;" %>
+            <%= image_tag user.profile_image, class: "thumbnail rounded-pill", style: "height: 30px; width: 30px;" %>
           <% else %>
-            <%= image_tag 'user.png',  class: "thumbnail rounded-pill", style: "height: 40px; width: 40px;" %>
-          <% end %> 
-          <%= user.username %></p>
+            <%= image_tag 'user.png',  class: "thumbnail rounded-pill", style: "height: 30px; width: 30px;" %>
+          <% end %>
+          <%= user.username%>
+          
         <% end %>
       </div>
-      <%= user.email %>
+      
     </div>
     <span>
       <%= follow_btn(user) %>

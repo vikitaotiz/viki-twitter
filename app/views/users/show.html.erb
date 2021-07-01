@@ -9,33 +9,49 @@
   
   <div class="col-lg-4 col-md-6 col-sm-12 border-start">
     <% if @user.profile_image.attached? %>
-    <div class="text-center card-box">
-         <div class="member-card pt-2 pb-2">
-           <div class="thumb-lg member-thumb mx-auto">
-           <%= image_tag @user.profile_image, class: "rounded-circle img-thumbnail", style: "height: 100px; width: 100px;" %>
-              <div class="">
-                <h4><%= @user.username %></h4>
-                <p class="text-muted"> <i class="fas fa-envelope"></i> : <%= @user.email %></p>
-              </div>
-           </div>
+      <div class="text-center card-box">
+          <div class="member-card pt-2 pb-2">
+            <div class="thumb-lg member-thumb mx-auto">
+            <%= image_tag @user.profile_image, class: "rounded-circle img-thumbnail", style: "height: 100px; width: 100px;" %>
+                <div class="">
+                  <h4><%= @user.username %></h4>
+                  <p class="text-muted"> <i class="fas fa-envelope"></i> : <%= @user.email %></p>
+                </div>
+            </div>
+          </div>
+    <% else %>
+        <div class="text-center card-box">
+          <div class="member-card pt-2 pb-2">
+            <div class="thumb-lg member-thumb mx-auto">
+            <%= image_tag 'user.png', class: "rounded-circle img-thumbnail", style: "height: 100px; width: 100px;" %>
+                <div class="">
+                  <h4><%= @user.username %></h4>
+                  <p class="text-muted"> <i class="fas fa-envelope"></i> : <%= @user.email %></p>
+                </div>
+            </div>
+          </div>
+    <% end %>
+    <div class="ms-2 me-auto">
+             <div class="row border-top">
+                <div class="col">
+                    <b><%= @user.tweets.count %></b><br>
+                    Tweets
+                </div>
+                <div class="col">
+                    <b><%= @user.followers.count %></b><br>
+                    Followers
+                </div>
+                <div class="col">
+                    <b><%= @user.following.count %></b><br>
+                    Following
+                </div>
+            </div>
         </div>
-  <% else %>
-       <div class="text-center card-box">
-         <div class="member-card pt-2 pb-2">
-           <div class="thumb-lg member-thumb mx-auto">
-           <%= image_tag 'user.png', class: "rounded-circle img-thumbnail", style: "height: 100px; width: 100px;" %>
-              <div class="">
-                <h4><%= @user.username %></h4>
-                <p class="text-muted"> <i class="fas fa-envelope"></i> : <%= @user.email %></p>
-              </div>
-           </div>
-        </div>
-  <% end %>
   </div>
-</div><hr>
+</div>
+<%= render 'shared/subnav' %>
 
 <div class="row">
-  <p><%= link_to " Back", :back, class: "fas fa-arrow-left text-decoration-none" %></p>
   <div class="col-lg-8 col-md-6 col-sm-12">
     <ul class="@users">
       <%= render @tweets %>
@@ -44,23 +60,8 @@
 
   <div class="col-lg-4 col-md-6 col-sm-12">
     <div class="card card-body">
-    <span class="float-end"><i class="fas fa-thumbs-up"></i> Likes : <%= @user.likes.count %></span>
       <ul class="list-group list-group-flush">
-        <div class="ms-2 me-auto">
-             <div class="row border-top">
-                <div class="col">Tweets<br>
-                    <b><%= @user.tweets.count %></b>
-                </div>
-                <div class="col">Followers<br>
-                    <b><%= @user.followers.count %></b>
-                </div>
-                <div class="col">Following<br>
-                    <b><%= @user.following.count %></b>
-                </div>
-            </div>
-        </div><hr>
         <span>
-            
           <% if current_user.id == @user.id %>
             <h5>My Followers : </h5>
             <ul class="list-group list-group-flush">
