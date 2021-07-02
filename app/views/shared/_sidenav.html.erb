@@ -1,5 +1,5 @@
 <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <nav class="sb-sidenav accordion sb-sidenav-dark bg-dark-blue" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                         <% if user_signed_in? %>
@@ -48,7 +48,8 @@
                                     <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                     Profile
                                 </a>
-
+                                <hr>
+                                <%= link_to ' Log Out', destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link" %>
                             </div><hr>
                         <% end %>
                     </div>

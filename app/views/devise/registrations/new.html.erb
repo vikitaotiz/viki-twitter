@@ -6,12 +6,12 @@
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="field">
     <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control" %>
+    <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control rounded-pill" %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded-pill" %>
   </div>
 
   <div class="field">
@@ -19,16 +19,16 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control rounded-pill" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control rounded-pill" %>
   </div>
 
   <div class="d-grid mt-2">
-    <%= f.submit "Sign up", class: "btn btn-sm btn-primary" %>
+    <%= f.submit "Sign up", class: "btn btn-sm btn-primary rounded-pill bg-blue" %>
   </div>
 <% end %>
 
