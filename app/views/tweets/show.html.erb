@@ -1,3 +1,5 @@
+<%= render 'shared/subnav' %>
+
 <div class="card card-body m-2 shadow">
     <div class="card-subtitle">
         <span><%= link_to "Back", :back, class: "fas fa-arrow-left text-decoration-none" %> | 
@@ -29,7 +31,7 @@
         <%= form_for(@tweet.comments.new, url: tweet_comments_path(@tweet)) do |form| %>
         <%= form.text_field :content, id: :comment_content, class: 'form-control rounded-pill', placeholder: 'Add new Comment' %>
         <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-sm btn-primary mt-1 rounded-pill">
+            <button type="submit" class="btn btn-sm btn-primary mt-1 rounded-pill bg-blue">
             <i class="fas fa-comments"></i> Add Comment</button>
         </div>
         <% end %>
