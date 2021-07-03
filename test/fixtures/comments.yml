@@ -9,8 +9,3 @@ one:
   content: FirstTweet
   user: one
   tweet: one
-
-two:
-  content: SecondTweet
-  user: two
-  tweet: two

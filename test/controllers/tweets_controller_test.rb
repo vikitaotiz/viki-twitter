@@ -1,9 +1,8 @@
 require 'test_helper'
 
 class TweetsControllerTest < ActionDispatch::IntegrationTest
-
   setup do
-    sign_in users(:user_001)
+    sign_in users(:userone)
     @tweet = tweets(:one)
   end
 
@@ -16,5 +15,4 @@ class TweetsControllerTest < ActionDispatch::IntegrationTest
     tweet = Tweet.new(content: @tweet.content, user_id: @tweet.user_id)
     assert :success if tweet.save
   end
-
 end

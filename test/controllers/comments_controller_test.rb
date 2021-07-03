@@ -2,7 +2,7 @@ require 'test_helper'
 
 class CommentsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    sign_in users(:user_001)
+    sign_in users(:userone)
     @comment = comments(:one)
   end
 

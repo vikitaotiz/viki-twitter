@@ -7,10 +7,9 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "show tweets index page when user is authenticated" do
-
     # puts Faker::Internet.user_name
 
-    sign_in users(:user_001)
+    sign_in users(:userone)
     get tweets_url
     assert_response :success
   end
