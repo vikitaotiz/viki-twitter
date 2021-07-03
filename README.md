@@ -4,7 +4,6 @@ This is a simple MVP twitter clone application project written on ruby on rails.
 
 ![twitter](https://user-images.githubusercontent.com/42869046/124349640-d3664780-dbf8-11eb-83fc-570c644bfed1.JPG)
 
-
 ## Built With
 
 - Ruby
@@ -27,13 +26,20 @@ This is a simple MVP twitter clone application project written on ruby on rails.
 - Run `rails server` to spin up a development server
 - Once the server is up, open this link 'http://127.0.0.1:3000' on your browser
 
-### Run tests
+### Tests
+
+#### Unit tests
 
 - Navigate into the app directory, `cd viki-twitter`
 - Then run `rails db:migrate db:test:prepare`
 - Then run `rspec --format doc`. This will display detailed information about models and test results.
 
+#### Integration tests
+
+- Run `rails test`
+
 ### Features
+
 - User can login/signup.
 - User can see landing page.
 - User can see the other users to follow.

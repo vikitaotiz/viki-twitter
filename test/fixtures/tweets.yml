@@ -7,8 +7,8 @@
 
 one:
   content: FirstTweet
-  user: one
+  user_id: 1
 
-two:
+one:
   content: SecondTweet
-  user: two
+  user_id: 2
