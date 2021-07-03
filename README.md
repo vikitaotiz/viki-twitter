@@ -2,7 +2,8 @@
 
 This is a simple MVP twitter clone application project written on ruby on rails. The project test basic concepts of MVC application architecture. It involves, installation and configuration of ruby on rails, use of models, controllers, associations, views, routers and database. It also tests implementation of rspec in intergrated and unit tests
 
-![twitter](https://user-images.githubusercontent.com/42869046/124124507-2ddc9800-da81-11eb-94ff-9cce885595f8.JPG)
+![twitter](https://user-images.githubusercontent.com/42869046/124349640-d3664780-dbf8-11eb-83fc-570c644bfed1.JPG)
+
 
 ## Built With
 
