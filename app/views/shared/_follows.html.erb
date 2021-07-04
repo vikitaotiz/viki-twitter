@@ -1,0 +1,26 @@
+<% @follows.each do |user| %>
+
+<ul class="list-group list-group-flush">
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">
+      
+        <%= link_to("/users/#{user.id}") do %>
+          <% if user.profile_image.attached? %>
+            <%= image_tag user.profile_image, class: "thumbnail rounded-pill", style: "height: 30px; width: 30px;" %>
+          <% else %>
+            <%= image_tag 'user.png',  class: "thumbnail rounded-pill", style: "height: 30px; width: 30px;" %>
+          <% end %>
+          <%= user.username%>
+          
+        <% end %>
+      </div>
+      
+    </div>
+    <span>
+      <%= follow_btn(user) %>
+    </span>
+  </li>
+  </ul>
+  
+<% end %>

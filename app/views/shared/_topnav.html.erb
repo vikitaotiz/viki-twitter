@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-blue">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+       <i class="fab fa-twitter"></i> Viki-Twitter
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+        </li>
+      </ul>
+      <form class="d-flex">
+        <% if user_signed_in? %>
+                  <div class="nav-link text-white">
+                    <i class="fas fa-thumbs-up"></i> : <%= current_user.likes.count %>
+                  </div>
+                  <div class="nav-link">
+                    <a href="<%= edit_user_registration_path(current_user) %>"><i class="fas fa-cog text-white"></i></a>
+                  </div>
+                  <div class="nav-link">
+                    <%= link_to ' Log Out', destroy_user_session_path, method: :delete, class: "text-decoration-none fas fa-sign-out-alt text-white" %>
+                  </div>
+                <% else %>
+                    <%= link_to 'Log In', new_user_session_path, class: "btn btn-success btn-sm rounded-pill m-2", style: "width: 80px" %>
+                    <%= link_to 'Register', new_user_registration_path, class: "btn btn-warning btn-sm rounded-pill m-2", style: "width: 80px" %>
+                <% end %>
+      </form>
+    </div>
+  </div>
+</nav>

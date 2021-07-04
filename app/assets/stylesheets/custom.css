@@ -1,0 +1,30 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #e7ecef;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.bg-blue {
+  background: #52a3e2;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 18% 82%;
+  height: 100vh;
+}
+
+.bg-dark-blue {
+  background-color: #213246;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  color: white;
+  text-align: center;
+}

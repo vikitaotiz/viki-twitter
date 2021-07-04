@@ -1,0 +1,58 @@
+<div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark bg-dark-blue" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                        <% if user_signed_in? %>
+                            <a href="/users/<%= current_user.id %>" class="text-decoration-none text-white">
+                            <% if current_user.profile_image.attached? %>
+                                <div class="row mt-1">
+                                    <div class="col text-center card-box">
+                                      <%= image_tag current_user.profile_image, class: "img-thumbnail", style: "height: 50px; width: 50px;" %>
+                                    </div>
+                                    <div class="col pt-3"><i><%= current_user.username %></i></div>
+                                </div>
+                            <% else %>
+                                <div class="row mt-1">
+                                  <div class="col text-center card-box">
+                                    <%= image_tag 'user.png', class: "img-thumbnail", style: "height: 50px; width: 50px;" %>
+                                  </div>
+                                  <div class="col pt-3"><i><%= current_user.username %></i></div>
+                                </div>
+                            <% end %>
+                            </a>
+                            <hr>
+                            <small>
+                                <div class="row container">
+                                    <div class="col">
+                                        <b><%= current_user.following.count %></b><br>
+                                        Following
+                                    </div>
+                                    <div class="col">
+                                        <b><%= current_user.followers.count %></b><br>
+                                        Followers
+                                    </div>
+                                </div>
+                            </small>
+                            </div><hr>
+                            <div class="nav">
+                                <a class="nav-link" href="/">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
+                                    Tweets
+                                </a>
+                                <a class="nav-link" href="/users">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                                    Users
+                                </a>
+
+                                <a class="nav-link" href="/users/<%= current_user.id %>">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                    Profile
+                                </a>
+                                <hr>
+                                <%= link_to ' Log Out', destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link" %>
+                            </div><hr>
+                        <% end %>
+                    </div>
+                </nav>
+            </div>
+            
